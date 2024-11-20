@@ -5,22 +5,52 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a7c3985-eaea-47b3-bc1c-a9fb6677e641" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aurora/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aurora/database/DatabaseConnection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aurora/database/repositories/MaterialRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aurora/screens/SigninPane.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aurora/screens/admin/AdminPane.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aurora/screens/admin/AuthRegistryPane.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aurora/screens/admin/MaterialPane.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aurora/screens/admin/create/CreateBookFormPane.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/aurora/database/models/Category.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/aurora/database/repositories/CategoryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/aurora/screens/admin/TextInput.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/aurora/screens/admin/TextInputContainer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/aurora/screens/admin/create/MaterialCategoriesPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/base/16384/1247" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/base/16384/1247" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/base/16384/1249" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/base/16384/1249" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/base/16384/1249_fsm" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/base/16384/1249_fsm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/base/16384/1259" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/base/16384/1259" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2224" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2224" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2579" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2579" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2604" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2604" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2606" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2606" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2606_fsm" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2606_fsm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2608" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2608" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2610" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2610" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2620" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2620" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2658" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2658" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2659" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2659" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2662" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2662" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2663" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2663" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2664" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2664" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2665" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2665" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2666" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2666" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2667" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2667" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2673" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2673" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2674" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2674" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2678" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2678" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2679" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2679" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2699" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2699" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2701" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2701" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2702" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2702" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2703" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2703" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2704" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2704" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/base/16384/3455" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/base/16384/3455" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/base/16384/5002" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/base/16384/5002" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/base/16384/pg_internal.init" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/base/16384/pg_internal.init" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/global/pg_control" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/global/pg_control" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/global/pg_internal.init" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/global/pg_internal.init" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/pg_wal/000000010000000000000001" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/pg_wal/000000010000000000000001" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/pg_xact/0000" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/pg_xact/0000" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/postmaster.pid" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/postmaster.pid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aurora/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aurora/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aurora/database/repositories/MaterialRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aurora/database/repositories/MaterialRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aurora/screens/admin/create/CreateBookFormPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aurora/screens/admin/create/CreateBookFormPane.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +94,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -134,11 +165,20 @@
       <workItem from="1731918493911" duration="1995000" />
       <workItem from="1731934705837" duration="1503000" />
       <workItem from="1731955518626" duration="974000" />
-      <workItem from="1731968991314" duration="2402000" />
+      <workItem from="1731968991314" duration="2497000" />
+      <workItem from="1731984327445" duration="2052000" />
+      <workItem from="1732020301883" duration="2592000" />
+      <workItem from="1732041520309" duration="1430000" />
+      <workItem from="1732068935435" duration="2986000" />
+      <workItem from="1732107878880" duration="690000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
