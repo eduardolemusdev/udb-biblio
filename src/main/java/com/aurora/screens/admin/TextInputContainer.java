@@ -1,28 +1,30 @@
 package com.aurora.screens.admin;
 
 import javax.swing.*;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class TextInputContainer extends JPanel {
 
-    List<TextInput> textInputs;
+    private List<TextInput> textInputs;
     private String labelContainer;
+    private GridBagConstraints gbc;
 
-    public TextInputContainer(List<TextInput> textInputs, String labelContainer) {
+    public TextInputContainer(List<TextInput> textInputs, String labelContainer, GridBagConstraints gbc) {
         this.textInputs = textInputs;
         this.labelContainer = labelContainer;
+        this.gbc = gbc;
 
+    }
+
+    public void initContainer(){
         setLayout(new GridBagLayout());
-        GridBagConstraints gbc = new GridBagConstraints();
+        setBorder(new CompoundBorder(new TitledBorder(labelContainer), new EmptyBorder(12, 0, 0, 0)));
         Font font = new Font("Arial", Font.PLAIN, 12);
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        gbc.weightx = 1;
-        gbc.anchor = GridBagConstraints.WEST;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.insets = new Insets(5, 5, 5, 5);
 
         AtomicInteger colCounter = new AtomicInteger(0);
 
@@ -34,13 +36,18 @@ public class TextInputContainer extends JPanel {
             add(textInput.getTextField(), gbc);
             gbc.gridx++;
 
+            colCounter.set(colCounter.get() + 1);
             if (colCounter.get() == 3) {
+                System.out.println(colCounter.get());
                 colCounter.set(0);
                 gbc.gridx = 0;
                 gbc.gridy++;
             }
 
-            colCounter.set(colCounter.get() + 1);
         }
+    }
+
+    public List<TextInput> getTextInputs() {
+        return textInputs;
     }
 }

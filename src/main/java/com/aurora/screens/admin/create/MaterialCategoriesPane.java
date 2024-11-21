@@ -2,7 +2,6 @@ package com.aurora.screens.admin.create;
 
 import com.aurora.database.models.Category;
 import com.aurora.database.repositories.CategoryRepository;
-import com.aurora.database.repositories.MaterialRepository;
 
 import javax.swing.*;
 import javax.swing.border.CompoundBorder;

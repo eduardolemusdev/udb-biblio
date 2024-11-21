@@ -12,7 +12,7 @@ public class Main {
         frame.add(new SigninPane(frame));
         frame.pack();
         frame.setLocationRelativeTo(null);
-        frame.setSize(650, 600);
+        frame.setSize(600, 600);
         frame.setVisible(true);
     }
 }

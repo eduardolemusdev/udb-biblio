@@ -53,8 +53,17 @@ public class SigninPane extends JPanel {
             String email = emailTextField.getText();
             String password = passwordTextField.getText();
 
-            mainFrame.setContentPane(adminPane);
-            mainFrame.revalidate();
+            mainFrame.setVisible(false);
+            mainFrame.dispose();
+
+            JFrame appFrame = new JFrame();
+            appFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            appFrame.setTitle("Colegio Amigos De Don Bosco");
+            appFrame.add(adminPane);
+            appFrame.pack();
+            appFrame.setLocationRelativeTo(null);
+            appFrame.setSize(1080, 720);
+            appFrame.setVisible(true);
         });
     }
 }
