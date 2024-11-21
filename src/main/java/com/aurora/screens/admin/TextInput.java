@@ -1,19 +1,20 @@
 package com.aurora.screens.admin;
 
 import javax.swing.*;
+import javax.swing.text.JTextComponent;
 
 public class TextInput {
-    private JTextField textField;
+    private JTextComponent textField;
     private String columnName;
     private String label;
 
-    public TextInput(JTextField textField, String columnName, String label) {
+    public TextInput(JTextComponent textField, String columnName, String label) {
         this.textField = textField;
         this.columnName = columnName;
         this.label = label;
     }
 
-    public JTextField getTextField() {
+    public JTextComponent getTextField() {
         return textField;
     }
 

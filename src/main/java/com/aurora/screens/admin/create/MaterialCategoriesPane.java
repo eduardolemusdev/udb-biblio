@@ -20,7 +20,6 @@ public class MaterialCategoriesPane extends JPanel {
     private Map<String, Integer> checkBoxMap = new HashMap<>();
     public MaterialCategoriesPane() {
         setLayout(new GridBagLayout());
-        setBorder(new CompoundBorder(new TitledBorder("Categorías"), new EmptyBorder(12, 0, 0, 0)));
         GridBagConstraints c = new GridBagConstraints();
 
         c.gridx = 0;
@@ -50,11 +49,11 @@ public class MaterialCategoriesPane extends JPanel {
             checkBoxMap.put(category.getName(), category.getId());
             checkBoxes.add(checkBox);
             add(checkBox, gbc);
-            gbc.gridy++;
+            gbc.gridx++;
             rowCount.set(rowCount.get() + 1);
             if(rowCount.get() == 3){
-                gbc.gridx++;
-                gbc.gridy = initialRowCount;
+                gbc.gridx = initialRowCount;
+                gbc.gridy++;
                 rowCount.set(0);
             }
         });

@@ -13,7 +13,7 @@ import java.util.List;
 public class CategoryRepository {
     public List<Category> getCategories(){
         List<Category> categories = new ArrayList<>();
-        String query = "select * from categories";
+        String query = "select * from categories order by name";
         try(Connection conn = DatabaseConnection.getConnection()){
             PreparedStatement stmt = conn.prepareStatement(query);
             ResultSet rs  = stmt.executeQuery();

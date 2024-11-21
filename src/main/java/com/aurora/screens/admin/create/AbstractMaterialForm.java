@@ -6,6 +6,9 @@ import com.aurora.screens.admin.TextInput;
 import com.aurora.screens.admin.TextInputContainer;
 
 import javax.swing.*;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +20,7 @@ public class AbstractMaterialForm extends JPanel {
     private TextInputContainer textInputContainer;
     private JButton btnSave;
     private String foreignKeyMaterialType;
+    private JTextArea descriptionTextArea;
 
     public AbstractMaterialForm(List<TextInput> textInputs, String materialLabel,  String foreignKeyMaterialType) {
         this.materialLabel = materialLabel;
@@ -39,7 +43,7 @@ public class AbstractMaterialForm extends JPanel {
 
         c.gridy++;
         c.gridwidth = 4; // Ocupa todo el ancho
-        JTextArea descriptionTextArea = new JTextArea();
+        descriptionTextArea = new JTextArea();
         descriptionTextArea.setFont(font);
         descriptionTextArea.setLineWrap(true);
         descriptionTextArea.setWrapStyleWord(true);
@@ -50,8 +54,9 @@ public class AbstractMaterialForm extends JPanel {
         add(scrollPane, c);
 
         c.gridy++;
-        MaterialCategoriesPane materialCategoriesPane = new MaterialCategoriesPane();
-        add(materialCategoriesPane,c);
+        JScrollPane scrollCategories = getjScrollPane();
+
+        add(scrollCategories,c);
 
         c.gridy++;
         add(btnSave =new JButton("Listar categorias"), c);
@@ -61,8 +66,19 @@ public class AbstractMaterialForm extends JPanel {
         });
     }
 
+    private static JScrollPane getjScrollPane() {
+        MaterialCategoriesPane materialCategoriesPane = new MaterialCategoriesPane();
+        JScrollPane scrollCategories = new JScrollPane(materialCategoriesPane);
+        scrollCategories.setBorder(new CompoundBorder(new TitledBorder("Categorías"), new EmptyBorder(12, 0, 0, 0)));
+        scrollCategories.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        scrollCategories.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        scrollCategories.setPreferredSize(new Dimension(400, 200)); // Ajusta el tamaño según lo que necesites
+        return scrollCategories;
+    }
+
     public void saveMaterial(){
         MaterialRepository materialRepository = new MaterialRepository();
+        textInputs.add(new TextInput(descriptionTextArea,"description", "Descripción"));
         List<InputStatement> inputStatements = textInputs.stream()
                 .filter(input -> !input.getTextField().getText().isEmpty())
                 .map(input -> new InputStatement(input.getColumnName(),input.getTextField().getText()))
