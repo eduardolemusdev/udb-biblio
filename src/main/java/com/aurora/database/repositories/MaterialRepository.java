@@ -4,10 +4,7 @@ import com.aurora.database.DatabaseConnection;
 import com.aurora.screens.admin.TextInput;
 import org.json.JSONObject;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,9 +28,10 @@ public class MaterialRepository {
         return materialTypes;
     }
 
-   public void saveDinamicMaterial(List<InputStatement> inputStatements, String fkMaterialType){
+   public int saveDinamicMaterial(List<InputStatement> inputStatements, String fkMaterialType) throws Exception{
        JSONObject materialToSave = new JSONObject();
 
+       int newId = -1;
        // construimos el objeto del material a guardar
        inputStatements.stream()
                .forEach(statement -> {
@@ -44,15 +42,24 @@ public class MaterialRepository {
 
        //Hacemos la conección a la base de datos
        try(Connection conn = DatabaseConnection.getConnection()){
-           PreparedStatement stmt = conn.prepareStatement(query);
+           PreparedStatement stmt = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
            stmt.setString(1, materialToSave.toString());
            stmt.setInt(2, Integer.parseInt(fkMaterialType));
            stmt.executeUpdate();
-           System.out.println("Material guardado sastifactoriamente.");
+           // Obtener la clave generada
+           try (ResultSet generatedKeys = stmt.getGeneratedKeys()) {
+               if (generatedKeys.next()) { // No es necesario usar un bucle
+                    newId = generatedKeys.getInt(1);
+               } else {
+                  throw  new Exception("No se generó ningún ID para el material.");
+               }
+           }
+
        }catch (SQLException e){
            e.printStackTrace();
        }
 
+       return newId;
    }
 
 }

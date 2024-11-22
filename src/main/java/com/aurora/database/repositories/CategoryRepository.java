@@ -28,4 +28,20 @@ public class CategoryRepository {
         }
         return categories;
     }
+
+    public void saveMaterialCategories(List<Integer> listCategoriesSelected, Integer newMaterialId){
+     listCategoriesSelected.forEach(categoryId -> {
+         String query = "insert into material_categories(material_id, category_id) values(?,?)";
+         try(Connection conn = DatabaseConnection.getConnection()){
+             PreparedStatement stmt = conn.prepareStatement(query);
+             stmt.setInt(1, newMaterialId);
+             stmt.setInt(2, categoryId);
+             stmt.executeUpdate();
+         }catch (SQLException e){
+             e.printStackTrace();
+         }
+     });
+
+     System.out.println("Material categories saved");
+    }
 }

@@ -1,5 +1,6 @@
 package com.aurora.screens.admin.create;
 
+import com.aurora.database.repositories.CategoryRepository;
 import com.aurora.database.repositories.InputStatement;
 import com.aurora.database.repositories.MaterialRepository;
 import com.aurora.screens.admin.TextInput;
@@ -17,10 +18,13 @@ import java.util.stream.Collectors;
 public class AbstractMaterialForm extends JPanel {
     List<TextInput> textInputs = new ArrayList<>();
     private String materialLabel;
+    private String foreignKeyMaterialType;
+
     private TextInputContainer textInputContainer;
     private JButton btnSave;
-    private String foreignKeyMaterialType;
     private JTextArea descriptionTextArea;
+    private MaterialCategoriesPane materialCategoriesPane;
+    private MaterialDirectionPane materialDirectionPane;
 
     public AbstractMaterialForm(List<TextInput> textInputs, String materialLabel,  String foreignKeyMaterialType) {
         this.materialLabel = materialLabel;
@@ -54,9 +58,28 @@ public class AbstractMaterialForm extends JPanel {
         add(scrollPane, c);
 
         c.gridy++;
-        JScrollPane scrollCategories = getjScrollPane();
+        materialCategoriesPane = new MaterialCategoriesPane();
+        JScrollPane scrollCategories = new JScrollPane(materialCategoriesPane);
+        scrollCategories.setBorder(new CompoundBorder(new TitledBorder("Categorías"), new EmptyBorder(12, 0, 0, 0)));
+        scrollCategories.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        scrollCategories.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        scrollCategories.setPreferredSize(new Dimension(400, 200)); // Ajusta el tamaño según lo que necesites
 
         add(scrollCategories,c);
+        c.gridy++;
+        c.gridwidth = 4;
+
+
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.anchor = GridBagConstraints.NORTH;
+
+        gbc.insets = new Insets(5, 5, 5, 5);
+        materialDirectionPane = new MaterialDirectionPane(gbc);
+
+        add(materialDirectionPane, c);
 
         c.gridy++;
         add(btnSave =new JButton("Listar categorias"), c);
@@ -66,16 +89,6 @@ public class AbstractMaterialForm extends JPanel {
         });
     }
 
-    private static JScrollPane getjScrollPane() {
-        MaterialCategoriesPane materialCategoriesPane = new MaterialCategoriesPane();
-        JScrollPane scrollCategories = new JScrollPane(materialCategoriesPane);
-        scrollCategories.setBorder(new CompoundBorder(new TitledBorder("Categorías"), new EmptyBorder(12, 0, 0, 0)));
-        scrollCategories.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-        scrollCategories.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-        scrollCategories.setPreferredSize(new Dimension(400, 200)); // Ajusta el tamaño según lo que necesites
-        return scrollCategories;
-    }
-
     public void saveMaterial(){
         MaterialRepository materialRepository = new MaterialRepository();
         textInputs.add(new TextInput(descriptionTextArea,"description", "Descripción"));
@@ -83,7 +96,17 @@ public class AbstractMaterialForm extends JPanel {
                 .filter(input -> !input.getTextField().getText().isEmpty())
                 .map(input -> new InputStatement(input.getColumnName(),input.getTextField().getText()))
                 .collect(Collectors.toList());
-        materialRepository.saveDinamicMaterial(inputStatements, foreignKeyMaterialType);
+
+        try {
+
+        int newMaterialId = materialRepository.saveDinamicMaterial(inputStatements, foreignKeyMaterialType);
+        List<Integer> listCategoriesId = materialCategoriesPane.getSelectedCategoriesId();
+        CategoryRepository categoryRepository = new CategoryRepository();
+        categoryRepository.saveMaterialCategories(listCategoriesId, newMaterialId);
+        System.out.println("NUEVO MATERIAL ID: "+newMaterialId);
+        }catch (Exception e){
+           e.printStackTrace();
+        }
     }
 
 }

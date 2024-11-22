@@ -17,7 +17,8 @@ public class AdminPane extends JPanel {
 
         tabbedPane = new JTabbedPane();
 
-        tabbedPane.add("Materiales Registro", new MaterialPane());
+        tabbedPane.add("Registrar Material", new MaterialPane());
+        tabbedPane.add("Buscar Material", new SearchMaterialPane());
         tabbedPane.add("Auth config", new AuthRegistryPane());
 
         add(tabbedPane,gbc);

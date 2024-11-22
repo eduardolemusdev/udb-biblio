@@ -1,12 +1,19 @@
 package com.aurora.screens.admin;
 
+import com.aurora.database.repositories.DatabaseColumn;
+
 import javax.swing.*;
 import javax.swing.text.JTextComponent;
 
-public class TextInput {
+public class TextInput implements DatabaseColumn, TextInputComponent {
     private JTextComponent textField;
     private String columnName;
     private String label;
+
+    public TextInput(JTextComponent textField, String label) {
+        this.textField = textField;
+        this.label = label;
+    }
 
     public TextInput(JTextComponent textField, String columnName, String label) {
         this.textField = textField;
