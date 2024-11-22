@@ -1,7 +1,8 @@
 package com.aurora.screens.admin.create;
 
+import com.aurora.database.models.MaterialDirection;
 import com.aurora.database.repositories.CategoryRepository;
-import com.aurora.database.repositories.InputStatement;
+import com.aurora.database.InputStatement;
 import com.aurora.database.repositories.MaterialRepository;
 import com.aurora.screens.admin.TextInput;
 import com.aurora.screens.admin.TextInputContainer;
@@ -98,15 +99,23 @@ public class AbstractMaterialForm extends JPanel {
                 .collect(Collectors.toList());
 
         try {
+            // TODO HANDLE EXCEPTIONS
+            List<Integer> listCategoriesId = materialCategoriesPane.getSelectedCategoriesId(true);
+            MaterialDirection materialDirection = materialDirectionPane.getMaterialDirection(true);
 
-        int newMaterialId = materialRepository.saveDinamicMaterial(inputStatements, foreignKeyMaterialType);
-        List<Integer> listCategoriesId = materialCategoriesPane.getSelectedCategoriesId();
-        CategoryRepository categoryRepository = new CategoryRepository();
-        categoryRepository.saveMaterialCategories(listCategoriesId, newMaterialId);
-        System.out.println("NUEVO MATERIAL ID: "+newMaterialId);
+            // guardamos el material solo si no saltan las excepciones de categorias y material direction
+            int newMaterialId = materialRepository.saveDinamicMaterial(inputStatements, foreignKeyMaterialType);
+
+            CategoryRepository categoryRepository = new CategoryRepository();
+            categoryRepository.saveMaterialCategories(listCategoriesId, newMaterialId);
+            materialRepository.saveMaterialLocation(materialDirection, newMaterialId);
+
         }catch (Exception e){
-           e.printStackTrace();
+            e.printStackTrace();
+           JOptionPane.showMessageDialog(this, e.getMessage());
         }
+
+        JOptionPane.showMessageDialog(this, "Material Guardado con Exito!");
     }
 
 }

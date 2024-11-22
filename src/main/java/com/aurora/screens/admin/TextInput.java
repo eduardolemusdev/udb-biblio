@@ -1,6 +1,6 @@
 package com.aurora.screens.admin;
 
-import com.aurora.database.repositories.DatabaseColumn;
+import com.aurora.database.DatabaseColumn;
 
 import javax.swing.*;
 import javax.swing.text.JTextComponent;

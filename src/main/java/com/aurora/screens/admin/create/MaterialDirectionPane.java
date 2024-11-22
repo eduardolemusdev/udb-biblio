@@ -72,6 +72,7 @@ public class MaterialDirectionPane extends JPanel {
 
         return new MaterialDirection(buildingTextField.getText(),
                 buildingFloorTextField.getText(),
+                buildingFloorSectorTextField.getText(),
                 shelfCodeTextField.getText(),
                 shelfFloorTextField.getText());
     }

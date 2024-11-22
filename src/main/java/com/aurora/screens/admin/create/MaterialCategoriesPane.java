@@ -2,6 +2,7 @@ package com.aurora.screens.admin.create;
 
 import com.aurora.database.models.Category;
 import com.aurora.database.repositories.CategoryRepository;
+import com.aurora.exceptions.NoCategoriesSelected;
 
 import javax.swing.*;
 import javax.swing.border.CompoundBorder;
@@ -59,7 +60,16 @@ public class MaterialCategoriesPane extends JPanel {
         });
     }
 
-    public List<Integer> getSelectedCategoriesId(){
+    public List<Integer> getSelectedCategoriesId(boolean needAtLeastOneCategory) throws NoCategoriesSelected {
+
+        if(needAtLeastOneCategory){
+            boolean isAtLeastOneCategorySelected = false;
+            isAtLeastOneCategorySelected = checkBoxes.stream().anyMatch(checkBox -> checkBox.isSelected());
+            if(!isAtLeastOneCategorySelected){
+              throw new NoCategoriesSelected("Necesitas seleccionar almenos una categoría");
+            }
+        }
+
         return checkBoxes.stream().filter(AbstractButton::isSelected).map( cb -> checkBoxMap.get(cb.getText())).collect(Collectors.toList());
     }
 

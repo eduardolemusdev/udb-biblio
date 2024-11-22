@@ -1,7 +1,9 @@
 package com.aurora.database.repositories;
 
 import com.aurora.database.DatabaseConnection;
-import com.aurora.screens.admin.TextInput;
+import com.aurora.database.InputStatement;
+import com.aurora.database.models.MaterialDirection;
+import com.aurora.exceptions.ErrorCreatingDatabaseRecord;
 import org.json.JSONObject;
 
 import java.sql.*;
@@ -51,7 +53,7 @@ public class MaterialRepository {
                if (generatedKeys.next()) { // No es necesario usar un bucle
                     newId = generatedKeys.getInt(1);
                } else {
-                  throw  new Exception("No se generó ningún ID para el material.");
+                  throw  new ErrorCreatingDatabaseRecord("No se generó ningún ID para el material.");
                }
            }
 
@@ -61,5 +63,26 @@ public class MaterialRepository {
 
        return newId;
    }
+
+   public void saveMaterialLocation(MaterialDirection materialDirection, Integer materialId) throws ErrorCreatingDatabaseRecord {
+        System.out.println(materialDirection);
+       String query = "insert into material_location (building, building_floor, building_floor_sector, shelf_code, shelf_level, material_id) values (?,?,?,?,?,?)";
+
+       try(Connection conn = DatabaseConnection.getConnection()){
+           PreparedStatement stmt = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+           stmt.setString(1, materialDirection.getBuilding());
+           stmt.setInt(2, Integer.parseInt(materialDirection.getFloorBuilding()));
+           stmt.setString(3, materialDirection.getFloorSector());
+           stmt.setString(4, materialDirection.getShelCode());
+           stmt.setInt(5, Integer.parseInt(materialDirection.getShelFloor()));
+           stmt.setInt(6, materialId);
+
+           stmt.executeUpdate();
+
+       }catch (SQLException e){
+           e.printStackTrace();
+           throw new ErrorCreatingDatabaseRecord("Error al crear la locación del material");
+       }
+   };
 
 }
