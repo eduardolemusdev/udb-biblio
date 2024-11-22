@@ -110,12 +110,12 @@ public class AbstractMaterialForm extends JPanel {
             categoryRepository.saveMaterialCategories(listCategoriesId, newMaterialId);
             materialRepository.saveMaterialLocation(materialDirection, newMaterialId);
 
+            JOptionPane.showMessageDialog(this, "Material Guardado con Exito!");
         }catch (Exception e){
             e.printStackTrace();
            JOptionPane.showMessageDialog(this, e.getMessage());
         }
 
-        JOptionPane.showMessageDialog(this, "Material Guardado con Exito!");
     }
 
 }
