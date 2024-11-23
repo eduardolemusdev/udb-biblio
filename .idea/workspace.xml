@@ -5,32 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a7c3985-eaea-47b3-bc1c-a9fb6677e641" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/aurora/database/repositories/SearchMaterialService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/log4j2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2224" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2224" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2665" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/base/16384/2665" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/base/16384/41032" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/base/16384/41032" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/base/16384/41037" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/base/16384/41037" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/base/16384/41038" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/base/16384/41038" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/base/16384/41043" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/base/16384/41043" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/base/16384/41107" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/base/16384/41107" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/base/16384/41108" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/base/16384/41108" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/base/16384/41111" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/base/16384/41111" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/base/16384/41113" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/base/16384/41113" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/base/16384/49224" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/base/16384/49224" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/base/16384/49229" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/base/16384/49229" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/base/16384/49232" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/base/16384/49232" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dbfiles/my-db/base/16384/pg_internal.init" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/base/16384/pg_internal.init" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dbfiles/my-db/global/pg_control" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/global/pg_control" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dbfiles/my-db/global/pg_internal.init" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/global/pg_internal.init" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dbfiles/my-db/pg_wal/000000010000000000000001" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/pg_wal/000000010000000000000001" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbfiles/my-db/pg_xact/0000" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/pg_xact/0000" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dbfiles/my-db/postmaster.pid" beforeDir="false" afterPath="$PROJECT_DIR$/dbfiles/my-db/postmaster.pid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/aurora/screens/admin/SearchMaterialPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aurora/screens/admin/SearchMaterialPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/aurora/screens/admin/create/AbstractMaterialForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aurora/screens/admin/create/AbstractMaterialForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/aurora/screens/admin/create/MaterialDirectionPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aurora/screens/admin/create/MaterialDirectionPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aurora/database/repositories/SearchMaterialService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/aurora/database/repositories/SearchMaterialService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,25 +42,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "Docker.docker-compose.yml.db-catedra: Compose Deployment.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/bunny/Escritorio/universidad/POO/proyecto_catedra_fase_uno/src/main/resources",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml.db-catedra: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/bunny/Escritorio/universidad/POO/proyecto_catedra_fase_uno/src/main/resources&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\bunny\Escritorio\universidad\POO\proyecto_catedra_fase_uno\src\main\resources" />
@@ -165,7 +146,8 @@
       <workItem from="1732230232512" duration="13580000" />
       <workItem from="1732252062064" duration="625000" />
       <workItem from="1732298905736" duration="1011000" />
-      <workItem from="1732314376338" duration="4398000" />
+      <workItem from="1732314376338" duration="4535000" />
+      <workItem from="1732351075503" duration="2472000" />
     </task>
     <servers />
   </component>

@@ -39,11 +39,13 @@ public class SearchMaterialService {
             if (materialLocationTextInputs.size() > 0) {
                 AtomicInteger stmtCounter = new AtomicInteger(2);
 
+                    logger.info("Entra ejecuta");
                 for (TextInput textInput : searchBuilderResult.getInputsWithValues()) {
                     String buildTextValue = textInput.getTextField().getText();
                     if (!isInteger(buildTextValue)) {
+                        logger.info(buildTextValue);
                         stmt.setString(stmtCounter.get(), buildTextValue);
-                        return;
+                        break;
                     }
                     stmt.setInt(stmtCounter.get(), Integer.parseInt(buildTextValue));
                     stmtCounter.set(stmtCounter.get() + 1);
@@ -77,7 +79,7 @@ public class SearchMaterialService {
         // AND ml.building '?'
         // AND ml.buildingg_flor '?'
         // etc
-        columsWithValues.forEach(col -> sb.append(String.format(" AND ml.%s = '?'",col.getColumnName())));
+        columsWithValues.forEach(col -> sb.append(String.format(" AND ml.%s = ?",col.getColumnName())));
         sb.append(";");
 
         logger.info(sb.toString());
@@ -86,6 +88,7 @@ public class SearchMaterialService {
     }
 
     private boolean isInteger(String str){
+        if (str == null || str.isEmpty()) return false;
         try {
             Integer.parseInt(str);
             return true;
