@@ -7,8 +7,9 @@ import com.aurora.screens.admin.create.MaterialDirectionPane;
 import javafx.scene.control.RadioButton;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.util.ArrayList;
+import java.util.*;
 import java.util.List;
 
 public class SearchMaterialPane extends JPanel {
@@ -20,9 +21,14 @@ public class SearchMaterialPane extends JPanel {
     private ButtonGroup searchButtonGroup = new ButtonGroup();
     private JRadioButton materialIDButton, materialTitleButton;
 
+    private JTable materialTable = new JTable();
+    private JPanel queryPanel = new JPanel();
+
+    private boolean isFirstSearch = true;
+
+    GridBagConstraints gbc = new GridBagConstraints();
     public SearchMaterialPane() {
         setLayout(new GridBagLayout());
-        GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.fill = GridBagConstraints.HORIZONTAL;
@@ -66,6 +72,8 @@ public class SearchMaterialPane extends JPanel {
         gbc.gridx = 0;
 
         add(materialDirectionPane, gbc);
+        gbc.gridy++;
+        queryPanel.setLayout(new GridBagLayout());
 
         handleSearchButton();
 
@@ -83,11 +91,46 @@ public class SearchMaterialPane extends JPanel {
 
                 SearchMaterialService searchMaterialService = new SearchMaterialService();
 
-                searchMaterialService.searchMaterial(selectedFilter, searctTarget, textInputs);
+               List<Map<String,Object>> results=  searchMaterialService.searchMaterial(selectedFilter, searctTarget, textInputs);
 
+
+
+                createDynamicTable(results,gbc);
             }catch (MaterialEmptyPropertyException e){
                 JOptionPane.showMessageDialog(this, e.getMessage());
             }
         });
+    }
+    public void createDynamicTable(List<Map<String, Object>> data, GridBagConstraints gbc) {
+        // Obtener todas las claves únicas para las columnas
+        Set<String> columnSet = new LinkedHashSet<>();
+        for (Map<String, Object> row : data) {
+            columnSet.addAll(row.keySet());
+        }
+        String[] columns = columnSet.toArray(new String[0]);
+        DefaultTableModel model = new DefaultTableModel(columns,0);
+
+
+        System.out.println(columnSet.toString());
+        // Agregar las filas al modelo
+        for (Map<String, Object> row : data) {
+            Object[] rowData = new Object[columns.length];
+            for (int i = 0; i < columns.length; i++) {
+                rowData[i] = row.getOrDefault(columns[i], ""); // Valor por defecto si no existe la clave
+            }
+            model.addRow(rowData);
+        }
+
+        materialTable.setModel(model);
+        JScrollPane scrollPane = new JScrollPane(materialTable);
+        scrollPane.setPreferredSize(new Dimension(500, 150));
+
+        queryPanel.removeAll();
+        queryPanel.add(scrollPane,gbc);
+        add(queryPanel, gbc);
+
+        queryPanel.revalidate();
+        queryPanel.repaint();
+
     }
 }

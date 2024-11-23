@@ -83,7 +83,7 @@ public class AbstractMaterialForm extends JPanel {
         add(materialDirectionPane, c);
 
         c.gridy++;
-        add(btnSave =new JButton("Listar categorias"), c);
+        add(btnSave =new JButton("Guardar Material"), c);
 
         btnSave.addActionListener(e -> {
            saveMaterial();

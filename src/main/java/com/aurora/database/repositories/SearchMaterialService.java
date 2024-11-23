@@ -5,9 +5,13 @@ import com.aurora.exceptions.ErrorCreatingDatabaseRecord;
 import com.aurora.screens.admin.TextInput;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.json.JSONObject;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
@@ -16,19 +20,22 @@ public class SearchMaterialService {
     private final Logger logger = LogManager.getLogger();
 
 
-    public void searchMaterial( String filterStrategy, String title, List<TextInput> materialLocationTextInputs){
+    public List<Map<String,Object>> searchMaterial( String filterStrategy, String title, List<TextInput> materialLocationTextInputs){
 
+        List<Map<String, Object>> searchResultRows = new ArrayList<>();
       switch (filterStrategy) {
             case "materialID":
                 break;
             case "materialTitle":
-                searchByTitle(title, materialLocationTextInputs);
+                searchResultRows =searchByTitle(title, materialLocationTextInputs);
                 break;
         }
+
+        return searchResultRows;
     }
 
-    private  void searchByTitle(String title, List<TextInput> materialLocationTextInputs) {
-
+    private  List<Map<String, Object>> searchByTitle(String title, List<TextInput> materialLocationTextInputs) {
+        List<Map<String, Object>> searchResultRows = new ArrayList<>();
         SearchBuilderResult searchBuilderResult = buildSearcByTitleQuery(title, materialLocationTextInputs);
         try(Connection conn = DatabaseConnection.getConnection()){
 
@@ -55,7 +62,9 @@ public class SearchMaterialService {
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-               logger.info(rs.getString("properties"));
+               JSONObject properties = new JSONObject(rs.getString("properties"));
+                Map<String, Object> rowMaterial = properties.toMap();
+                searchResultRows.add(rowMaterial);
             }
 
 
@@ -64,6 +73,7 @@ public class SearchMaterialService {
             logger.error(e);
         }
 
+        return searchResultRows;
     }
 
     private SearchBuilderResult buildSearcByTitleQuery(String title, List<TextInput> materialLocationTextInputs) {
